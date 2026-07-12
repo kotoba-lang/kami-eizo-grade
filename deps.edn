@@ -9,4 +9,12 @@
          :main-opts ["-m" "cognitect.test-runner"]}
   :lint {:replace-paths []
          :replace-deps {clj-kondo/clj-kondo {:mvn/version "2024.09.27"}}
-         :main-opts ["-m" "clj-kondo.main" "--lint" "src" "test"]}}}
+         :main-opts ["-m" "clj-kondo.main" "--lint" "src" "test"]}
+  ;; Real-browser real-pixel-data proof (test/e2e/, ADR-2607121400): compiles
+  ;; kami.eizo.grade.e2e.entry, which pulls in both this repo's own CDL
+  ;; primary-correction math and org-w3-webcodecs's raw WebCodecs binding,
+  ;; into one browser bundle via scripts/build-e2e-bundle.sh. See test/e2e/
+  ;; and the README's "Real-browser real-pixel-data proof" section.
+  :e2e {:extra-paths ["test/e2e/src"]
+        :extra-deps {io.github.kotoba-lang/org-w3-webcodecs
+                     {:git/sha "b14dc397e248f5aab0f5ad9e7845e2f80b2cf5a3"}}}}}
