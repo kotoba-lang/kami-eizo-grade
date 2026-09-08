@@ -7,7 +7,7 @@
    iteration order defined by the spec: red fastest, then green, then
    blue (i.e. index = r + g*N + b*N*N)."
   (:refer-clojure :exclude [parse-double parse-long])
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [kami.eizo.grade.mathutil :as m]))
 
 (defn- parse-double [s]

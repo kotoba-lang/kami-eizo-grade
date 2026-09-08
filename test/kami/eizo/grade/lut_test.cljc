@@ -1,6 +1,6 @@
 (ns kami.eizo.grade.lut-test
   (:require [clojure.test :refer [deftest is]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [kami.eizo.grade.lut :as lut]
             [kami.eizo.grade.mathutil :as m]))
 
