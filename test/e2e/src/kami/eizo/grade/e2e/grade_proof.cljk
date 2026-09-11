@@ -4,11 +4,11 @@
    proof (test/e2e/). One namespace, two independent execution paths:
 
    1. Compiled into the browser bundle
-      (test/e2e/src/kami/eizo/grade/e2e/entry.cljs ->
+      (test/e2e/src/kami/eizo/grade/e2e/entry.cljk ->
       scripts/build-e2e-bundle.sh -> grade-proof-bundle.js) and run
       in-page (test/e2e/page/index.html) against REAL decoded H.264
       pixel values coming back out of org-w3-webcodecs's VideoDecoder.
-   2. Required directly by test/e2e/run_e2e.cljs (nbb, interpreting this
+   2. Required directly by test/e2e/run_e2e.cljk (nbb, interpreting this
       same .cljc source rather than the compiled bundle) to compute the
       *expected* graded values offline, fed the exact same real decoded
       pixel triples the browser captured -- i.e. real captured pixel
@@ -16,7 +16,7 @@
       numbers.
 
    `kami.eizo.grade.cdl/apply-cdl` itself is unit-tested against
-   hand-computed values in test/kami/eizo/grade/cdl_test.cljc already;
+   hand-computed values in test/kami/eizo/grade/cdl_test.cljk already;
    this proof is not re-verifying the ASC CDL formula's arithmetic (that
    is already covered offline). It verifies two things the unit tests
    cannot: that this repo's grading math runs correctly *in a real

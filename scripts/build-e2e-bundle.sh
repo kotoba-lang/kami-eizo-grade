@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Compiles test/e2e/src/kami/eizo/grade/e2e/entry.cljs (which pulls in both
+# Compiles test/e2e/src/kami/eizo/grade/e2e/entry.cljk (which pulls in both
 # this repo's own kami.eizo.grade.cdl primary-correction math and
 # org-w3-webcodecs's raw WebCodecs binding) ->
 # test/e2e/page/grade-proof-bundle.js for the browser real-pixel-data proof

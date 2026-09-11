@@ -73,15 +73,15 @@ through a real, lossy video codec** — not just synthetic triples in a
 unit test.
 
 It builds directly on `kotoba-lang/org-w3-webcodecs`'s own real-browser
-WebCodecs E2E proof (`org-w3-webcodecs` `test/e2e/run_e2e.cljs`, commit
+WebCodecs E2E proof (`org-w3-webcodecs` `test/e2e/run_e2e.cljk`, commit
 `b14dc397e248`) and mirrors the harness `kami-eizo-timeline` established on
-top of it (`kami-eizo-timeline` `test/e2e/run_e2e.cljs`, commit
+top of it (`kami-eizo-timeline` `test/e2e/run_e2e.cljk`, commit
 `c0116940f19e`) — same nbb+Playwright harness, same local HTTP server
 (WebCodecs needs a secure context; `about:blank`/`file:` don't expose
 `VideoDecoder`/`VideoEncoder`), same real headless Chromium, same
 `avc1.42001f` H.264 baseline codec.
 
-`test/e2e/src/kami/eizo/grade/e2e/grade_proof.cljc` is a small portable
+`test/e2e/src/kami/eizo/grade/e2e/grade_proof.cljk` is a small portable
 namespace wrapping `kami.eizo.grade.cdl/apply-cdl` with a concrete,
 **non-identity** CDL node (`slope [0.95 0.9 0.85]`, `offset [0.02 -0.02
 0.02]`, `power [0.95 1.05 1.1]`, `saturation 1.05` — picked so no channel
@@ -104,7 +104,7 @@ own E2E pages) does three things, in order:
    themselves survive a real codec round-trip, not just that the
    arithmetic ran.
 
-`test/e2e/run_e2e.cljs` (nbb) then does the cross-verification this
+`test/e2e/run_e2e.cljk` (nbb) then does the cross-verification this
 proof is really about: it requires the *same* `grade_proof.cljc` source
 directly (via `nbb -cp "src:test/e2e/src"` — a different runtime/execution
 path than the browser's compiled bundle) and recomputes the expected
@@ -142,7 +142,7 @@ bash scripts/build-e2e-bundle.sh            # compiles kami.eizo.grade.e2e.entry
                                              # (JVM/Clojure CLI build step, not an
                                              # app-runtime choice — see
                                              # scripts/build-e2e-bundle.sh)
-nbb -cp "src:test/e2e/src" test/e2e/run_e2e.cljs
+nbb -cp "src:test/e2e/src" test/e2e/run_e2e.cljk
 ```
 
 Exits 0 and prints the JSON result (per-quadrant painted/decoded/graded/
