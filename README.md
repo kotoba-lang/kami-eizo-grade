@@ -106,7 +106,7 @@ own E2E pages) does three things, in order:
 
 `test/e2e/run_e2e.cljk` (nbb) then does the cross-verification this
 proof is really about: it requires the *same* `grade_proof.cljc` source
-directly (via `nbb -cp "src:test/e2e/src"` — a different runtime/execution
+directly (via `kbb --backend sci -cp "src:test/e2e/src"` — a different runtime/execution
 path than the browser's compiled bundle) and recomputes the expected
 graded value for each quadrant from the exact `decodedBeforeGrading`
 values the browser captured, then diffs that offline result against
@@ -142,7 +142,7 @@ bash scripts/build-e2e-bundle.sh            # compiles kami.eizo.grade.e2e.entry
                                              # (JVM/Clojure CLI build step, not an
                                              # app-runtime choice — see
                                              # scripts/build-e2e-bundle.sh)
-nbb -cp "src:test/e2e/src" test/e2e/run_e2e.cljk
+kbb --backend sci -cp "src:test/e2e/src" test/e2e/run_e2e.cljk
 ```
 
 Exits 0 and prints the JSON result (per-quadrant painted/decoded/graded/
@@ -159,8 +159,8 @@ build artifacts, gitignored.
 ## Test
 
 ```bash
-clojure -M:test
-clojure -M:lint
+kbb -M:test
+kbb -M:lint
 ```
 
 ## License
