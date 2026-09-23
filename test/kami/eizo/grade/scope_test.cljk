@@ -1,5 +1,5 @@
 (ns kami.eizo.grade.scope-test
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [kami.eizo.grade.scope :as scope]
             [kami.eizo.grade.mathutil :as m]))
 

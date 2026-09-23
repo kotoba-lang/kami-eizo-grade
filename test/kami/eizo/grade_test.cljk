@@ -1,5 +1,5 @@
 (ns kami.eizo.grade-test
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [kami.eizo.grade :as g]
             [kami.eizo.grade.cdl :as cdl]
             [kami.eizo.grade.curve :as curve]
