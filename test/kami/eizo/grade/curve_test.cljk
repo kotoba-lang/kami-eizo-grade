@@ -1,5 +1,5 @@
 (ns kami.eizo.grade.curve-test
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [kami.eizo.grade.curve :as curve]
             [kami.eizo.grade.mathutil :as m]))
 
